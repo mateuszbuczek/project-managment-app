@@ -27,7 +27,6 @@ class UpdateProject extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
@@ -51,7 +50,6 @@ class UpdateProject extends Component {
       start_date: this.state.start_date,
       end_date: this.state.end_date
     };
-    console.log(newProject);
     this.props.createProject(newProject, this.props.history);
   }
 
