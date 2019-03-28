@@ -19,4 +19,12 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
         // response entity will call exceptionResponse fields getters to key:value pairs
         return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler
+    public final ResponseEntity<Object> handleProjectNotFoundException(ProjectNotFoundException ex, WebRequest req) {
+        ProjectNotFoundExceptionResponse exceptionResponse = new ProjectNotFoundExceptionResponse(ex.getMessage());
+
+        // response entity will call exceptionResponse fields getters to key:value pairs
+        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
 }
