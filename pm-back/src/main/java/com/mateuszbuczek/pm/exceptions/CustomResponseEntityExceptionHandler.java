@@ -27,4 +27,12 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
         // response entity will call exceptionResponse fields getters to key:value pairs
         return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler
+    public final ResponseEntity<Object> handleUsernameAlreadyExists(UsernameAlreadyExistsException ex, WebRequest req) {
+        UsernameAlreadyExistsExceptionResponse exceptionResponse = new UsernameAlreadyExistsExceptionResponse(ex.getMessage());
+
+        // response entity will call exceptionResponse fields getters to key:value pairs
+        return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
+    }
 }

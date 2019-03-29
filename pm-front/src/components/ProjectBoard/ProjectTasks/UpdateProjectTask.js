@@ -17,7 +17,7 @@ class UpdateProjectTask extends Component {
       priority: 0,
       dueDate: "",
       projectIdentifier: id,
-      create_At: "",
+      created_At: "",
       id: "",
       errors: {}
     };
@@ -49,7 +49,7 @@ class UpdateProjectTask extends Component {
       priority: this.state.priority,
       dueDate: this.state.dueDate,
       projectIdentifier: this.state.projectIdentifier,
-      create_At: this.state.create_At,
+      created_At: this.state.created_At,
       id: this.state.id
     };
     this.props.updateProjectTask(
