@@ -15,7 +15,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         project_tasks: state.project_tasks.filter(item => {
-          console.log(item.projectSequence, action.payload);
           return item.projectSequence !== action.payload;
         })
       };
