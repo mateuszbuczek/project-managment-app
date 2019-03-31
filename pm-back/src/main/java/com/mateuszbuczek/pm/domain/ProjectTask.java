@@ -1,5 +1,6 @@
 package com.mateuszbuczek.pm.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class ProjectTask {
     private String acceptanceCriteria;
     private String status;
     private Integer priority;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date dueDate;
     //ManyToOne with Backlog (cascade type refresh - when project task is deleted it informs backlog about it)
     @ManyToOne(fetch = FetchType.EAGER)

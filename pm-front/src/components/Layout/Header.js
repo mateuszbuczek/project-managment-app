@@ -7,20 +7,10 @@ import { logout } from "../../actions/securityActions";
 class Header extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      loggedIn: false
-    };
   }
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.user) {
-      this.setState({
-        loggedIn: Object.keys(nextProps.user.user).length !== 0
-      });
-    }
-  };
 
   render() {
+    const loggedIn = Object.keys(this.props.user.user).length !== 0;
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
         <div className="container">
@@ -42,7 +32,7 @@ class Header extends Component {
 
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                {this.state.loggedIn ? (
+                {loggedIn ? (
                   <Link className="nav-link " to="/dashboard">
                     <i className="fas fa-user-circle mr-1" />
                     {this.props.user.user.fullName}
@@ -54,7 +44,7 @@ class Header extends Component {
                 )}
               </li>
               <li className="nav-item">
-                {this.state.loggedIn ? (
+                {loggedIn ? (
                   <Link className="nav-link" to="/" onClick={this.props.logout}>
                     Logout
                   </Link>
